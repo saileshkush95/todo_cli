@@ -25,7 +25,7 @@ def add_item(args):
     """
     Adds a todo item to the todo list
     """
-    title = args[1]
+    title = ' '.join(args).strip('\'').strip( '"')
     data = get_data()
     new_todo = {
         "id": randint(11111, 99999),
@@ -58,8 +58,8 @@ def edit_item(args):
     """
     Edit title for  particular todo item
     """
-    id = int(args[1])
-    new_title = args[2]
+    id = int(args[0])
+    new_title = ' '.join(args[1:]).strip('\'').strip( '"')
     data = get_data()
     for d in data:
         if d.get("id", 0) == id:
@@ -71,7 +71,7 @@ def remove_item(args):
     """
     Remove a todo item
     """
-    id = int(args[1])
+    id = int(args[0])
     data = [x for x in get_data() if not (id == x.get("id"))]
     update_data(data)
 
@@ -80,7 +80,7 @@ def complete_item(args):
     """
     Mark a todo item as completed
     """
-    id = int(args[1])
+    id = int(args[0])
     data = get_data()
     for d in data:
         if d.get("id", 0) == id:
@@ -92,7 +92,7 @@ def incomplete_item(args):
     """
     Mark a todo item as incomplete
     """
-    id = int(args[1])
+    id = int(args[0])
     data = get_data()
     for d in data:
         if d.get("id", 0) == id:
