@@ -1,0 +1,9 @@
+The following commands are available:
+1. todo add item_names => add a todo item 
+2. todo all => show all the todo items
+3. todo edit item_id new_item_name => edit the todo item providing the id and new title
+4. todo remove item_id => remove a todo item
+5. todo complete item_id => mark a todo item as completed
+6. todo incomplete item_id => mark a todo item as incomplete
+7. help => prints this...
+8. quit => exit the application
